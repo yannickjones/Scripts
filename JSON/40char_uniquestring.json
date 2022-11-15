@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "dateTime": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
+        }
+    },
+    "resources": [],
+    "outputs": {
+      "uniqueString": {
+        "value": "[concat(uniqueString(resourceGroup().id),uniqueString(deployment().name), uniqueString(parameters('dateTime')))]",
+        "type": "string"
+      }
+    }
+  }
